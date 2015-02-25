@@ -1,0 +1,14 @@
+{
+  "name": "Task board",
+  "version": "v0.0.1",
+  "dependencies": {
+    "angular": "1.2.26",
+    "angular-resource": "latest",
+    "angular-cookies": "latest",
+    "angular-mocks": "latest",
+    "angular-route": "latest",
+    "bootstrap": "3.0.3",
+    "angular-bootstrap": "~0.12.1",
+    "angular-ui-router": "#master"
+  }
+}

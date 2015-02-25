@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app= "taskboardApp">
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link href="/component/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="/component/bootstrap/bootstrap-theme.css" rel="stylesheet"/>
+
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <div ui-view> </div>	
+
+    <script src="/component/angular/angular.min.js"></script>
+    <script src="/component/angular-route/angular-route.min.js"></script>
+    <script src="/component/angular-ui-router/release/angular-ui-router.min.js"></script>
+ 	  <script src="/js/app.js"></script>
+ 	  <script src="/js/routes.js"></script>
+    <script src="/js/services/services.js"></script>
+    <script src="/js/controllers/controllers.js"></script>
+    <script src="/component/jquery/dist/jquery.min.js"></script>
+    <script src="/component/bootstrap/dist/js/bootstrap.min.js"></script>
+    
+    <script src="js/stylesheets/style.css"></script>
+  </body>
+</html>
