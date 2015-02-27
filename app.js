@@ -1,16 +1,27 @@
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
+var express = require('express');
+var path = require('path');
+var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
 
+var task = require('./app/models/taskboard');
 
-var routes = require('./app/routes');
-// var routes = require('./routes/index');
+//var routes = require('./app/routes');
+var routes = require('./app/routes/index');
 // var users = require('./routes/users');
 
 var app = express();
+
+var ProjectModel = mongoose.model('Project')
+var TaskModel = mongoose.model('Task');
+var UserModel = mongoose.model('User');
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, '/app/views'));
@@ -58,7 +69,8 @@ app.use(function(err, req, res, next) {
     });
 });
 
-// app.use('/', routes);
+app.use('/', routes);
+
 
 app.listen(4100);
 console.log('Listening on port 4100...');

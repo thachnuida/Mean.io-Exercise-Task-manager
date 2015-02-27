@@ -1,36 +1,50 @@
-
-<h3>View task</h3>
-<p> Task title ...</p>
-<div class="panel-body">
-<div class="row">
-  <div class="col-md-8">
-  <p class="text-left">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-  <p> Tag: tag1, tag2...</p>
-  <p> Assigned to: </p>
-  <div class="form-group">
-    <label>Comment:</label>
-    <input type="comment" class="form-control" id="comment" placeholder="Comment here...">
-  </div>
-</div>
-
-  <div class="col-md-4">
-      <p> 09/13/14, 5am, create by ... </p>
-      <p> 09/16/14, move to Doing </p>
-  </div>
-</div> 
-
-    <button class="btn btn-primary" ng-click="">Close</button>
-    <button class="btn btn-primary" ng-click="">Delete</button>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm"> Assign for</button>
-    <!-- Modal -->
-<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-      <button class="btn btn-primary" ng-click="">For me</button>
-       <div class="form-group">
-        <input class="form-control" ng-model="" placeholder = "search user name"/>
-       </div>
-      <button class="btn btn-primary" ng-click= ""> OK </button>
+<div class="container-3">
+    <div id="header-2">
+        <h3>View task: Task title ... </h3>
     </div>
-  </div>
-</div>
+
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="panel">
+                    <p class="text-left"> Description: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                </div>
+                <div class="panel">
+                    <p> Tag: tag1, tag2, tag3...</p>
+                </div>
+                <div class="panel">
+                    <p> Assigned to: </p>
+                </div>
+                <div class="form-group">
+                    <label>Comment:</label>
+                    <input type="comment" class="form-control-1" id="comment" placeholder="Comment here...">
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div>
+                    <h3> History </h3>
+                </div>
+                <div>
+                    <p> 09/13/14, 5am, create by ... </p>
+                </div>
+                <div>
+                    <p> 09/16/14, move to Doing </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="button-size">
+            <button style="margin: 10px 50px 10px 10px; padding: 10px 45px 5px 35px" class="btn btn-primary" ng-click="">Close</button>
+            <button style="margin: 10px 50px 10px 10px; padding: 10px 45px 5px 35px;" class="btn btn-primary" ng-click="">Delete</button>
+            <button style="margin: 10px 50px 10px 10px; padding: 10px 45px 5px 35px;" type="button" class="btn btn-primary"> Assign for
+            </button>
+            <div class="assign-for" style="display:none">
+                <button style="margin: 10px 50px 10px 50px; padding: 5px 25px 5px 25px;" class="btn btn-primary" ng-click="">For me </button>
+                <div class="form-group">
+                    <input class="form-control-3" ng-model="" placeholder="search user name" />
+                </div>
+                <button style="margin: 10px 50px 10px 50px; padding: 5px 25px 5px 25px;" class="btn btn-primary" ng-click=""> OK </button>
+            </div>
+        </div>
+    </div>
