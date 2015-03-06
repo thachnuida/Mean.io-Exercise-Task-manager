@@ -22,15 +22,17 @@ var TaskSchema = mongoose.Schema ({
 		assign: { type: mongoose.Schema.ObjectId, ref: 'User'}
 	}],
 	taskhistory: [{
-		datecreated: Date,
-		datefinished: Date,
-		timemove: Date,
+		datecreated: {type: Date, default: Date.now},
+		datefinished: {type: Date, default: Date.now},
+		timemove: {type: Date, default: Date.now},
 	}],
 	taskcomment: [{
 		comment: {type:String, ref:'User'},
 		datecreated: {type: Date, default: Date.now}
-	}]
+	}],
+	projectId: {type: mongoose.Schema.ObjectId, ref: 'Project'}
 })
+
 
 mongoose.model('Task',TaskSchema );
 var TaskModel = mongoose.model('Task');

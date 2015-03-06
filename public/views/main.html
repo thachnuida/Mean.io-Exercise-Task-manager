@@ -1,3 +1,17 @@
+ <div> 
+<ul><li>Home</li>
+  <li>
+    Project
+    <ul>
+         <li ng-repeat="project in projects"> 
+         <a href="#/viewproject/{{ project._id }}" >{{project.projectname}}</a></li>
+    </ul>
+  </li>
+  <li>About</li>
+  <li>Contact</li>
+</ul>
+</div>
+
    <!-- Button trigger modal -->
 <button id="demo"type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" style="margin:10px">
  Create project
@@ -39,21 +53,7 @@
   </div>
 </div>
 
-<!-- <div class= "container-1">
-     <div class="span3-todo">
-        <div id="header-1">
-            <h3>Project</h3>
-        </div>
-        <div ng-repeat="project in projects">
-            <div class="row-1" >      
-                <p ng-click="createTaskInProjectId(project._id)"> {{project.projectname}} </p>
-            </div>
-        </div>
-        
-    </div>
-</div> -->
-   
-<div class="container-1">
+<!-- <div class="container-1">
     <div class="span3-todo">
         <div id="header-1">
             <h3>TO DO</h3>
@@ -87,4 +87,4 @@
 </div> 
 
 
-           
+            -->

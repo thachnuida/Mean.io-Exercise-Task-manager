@@ -15,7 +15,7 @@ router.get('/', function(req, res, next) {
 
 /*CRUD task*/
 
-router.get('/task', function(req, resp) {
+router.get('/task/', function(req, resp) {
     return TaskModel.find(function(err, task) {
         if (!err) {
             return resp.send(task);
@@ -25,9 +25,34 @@ router.get('/task', function(req, resp) {
     });
 });
 
+// router.get('/task/projectId/:projectId', function(req, resp) {
+    
+//     TaskModel.findById(req.params.id, function(err, task) {
+//         if (!err) {
+//             return resp.send(task);
+//         } else {
+//             console.log(err);
+//             return resp.send('ERROR');
+//         }
+//     });
+// });
+
+
+router.get('/task/:id', function(req, resp) {
+    TaskModel.findById(req.params.id, function(err, task) {
+        if (!err) {
+            return resp.send(task);
+        } else {
+            console.log(err);
+            return resp.send('ERROR');
+        }
+    });
+});
+
 router.post('/task', function(req, resp) {
     var assignUserId = new mongoose.Schema.ObjectId(req.body.taskassign);
     var commentUserId = new mongoose.Schema.ObjectId(req.body.taskcomment);
+   // var projectId = new mongoose.Schema.ObjectId(req.body.project);
     var task = new TaskModel({
         title: req.body.title,
         description: req.body.description,
@@ -35,7 +60,8 @@ router.post('/task', function(req, resp) {
         taskassign: assignUserId,
         datecreated: req.body.datecreated,
         taskhistory: req.body.taskhistory,
-        taskcomment: commentUserId
+        taskcomment: commentUserId,
+        projectId : req.body.projectId
     });
     console.log(req.body.title);
     task.save(function(err, taskData) {
@@ -59,7 +85,6 @@ router.get('/task/:id', function(req, resp) {
         }
     });
 });
-
 
 router.put('/task/:id', function(req, resp) {
     return TaskModel.findById(req.params.id, function(err, task) {
@@ -185,6 +210,18 @@ router.get('/project', function(req, resp) {
     });
 });
 
+router.get('/project/:id', function(req, resp) {
+    ProjectModel.findById(req.params.id, function(err, project) {
+        if (!err) {
+            return resp.send(project);
+        } else {
+            console.log(err);
+            return resp.send('ERROR');
+        }
+    });
+});
+
+
 router.post('/project', function(req, resp) {
     var project = new ProjectModel({
         projectname: req.body.projectname,
@@ -197,17 +234,6 @@ router.post('/project', function(req, resp) {
         if (!err) {
             console.log('created new project');
             return resp.send(projectData);
-        } else {
-            console.log(err);
-            return resp.send('ERROR');
-        }
-    });
-});
-
-router.get('/project/:id', function(req, resp) {
-    ProjectModel.findById(req.params.id, function(err, project) {
-        if (!err) {
-            return resp.send(project);
         } else {
             console.log(err);
             return resp.send('ERROR');

@@ -1,0 +1,37 @@
+<div> 
+<h1>Project: {{project.projectname}} </h1>
+</div>
+
+<div class="container-1">
+    <div class="span3-todo">
+        <div id="header-1">
+            <h3>TO DO</h3>
+        </div>
+        <div ng-repeat="task in tasks">
+            <div class="row-1">
+                <p>Task: </p>
+                <p ng-click="viewDetailTaskId(task._id)"> {{task.title}} </p>
+            </div>
+        </div>
+        <div class="btn btn-primary" style="margin: 320px 20px 30px 85px; padding: 5px 25px 5px 25px;" ng-click="createNewTask()">Create</div>
+    </div>
+    <div class="span3-doing">
+        <div id="header-1">
+            <h3>DOING</h3>
+        </div>
+        <div class="row-1">
+            <p></p>
+        </div>
+    </div>
+    <div class="span3-review">
+        <div id="header-1">
+            <h3>REVIEW</h3>
+        </div>
+    </div>
+    <div class="span3-done">
+        <div id="header-1">
+            <h3>DONE</h3>
+        </div>
+    </div>
+</div> 
+

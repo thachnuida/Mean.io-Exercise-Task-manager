@@ -11,11 +11,18 @@ angular.module('taskboardApp').config(['$stateProvider', '$urlRouterProvider',
 
         // states for my app
         $stateProvider
-            .state('home', {
-                url: '/home',
-                controller: 'TaskCtrl',
-                templateUrl: 'views/main.html'
-            })
+
+        .state('home', {
+            url: '/home',
+            controller: 'TaskCtrl',
+            templateUrl: 'views/main.html'
+        })
+        
+        .state('viewProject',{
+            url: '/viewproject/:id',
+            controller: 'viewProjectCtrl',
+            templateUrl: 'views/viewproject.html'
+        })
 
         .state('createTask', {
             url: '/createtask',
