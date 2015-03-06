@@ -21,8 +21,6 @@ var ProjectModel = mongoose.model('Project')
 var TaskModel = mongoose.model('Task');
 var UserModel = mongoose.model('User');
 
-
-
 // view engine setup
 app.set('views', path.join(__dirname, '/app/views'));
 app.set('view engine', 'ejs');
@@ -70,6 +68,24 @@ app.use(function(err, req, res, next) {
 });
 
 app.use('/', routes);
+
+app.get('/task', routes);
+app.get('task/id', routes);
+app.post('task',routes);
+app.put('task/id', routes);
+app.delete('task/id', routes);
+
+app.get('/user', routes);
+app.get('user/id', routes);
+app.post('user',routes);
+app.put('user/id', routes);
+app.delete('user/id', routes);
+
+app.get('/project', routes);
+app.get('project/id', routes);
+app.post('project',routes);
+app.put('project/id', routes);
+app.delete('project/id', routes);
 
 
 app.listen(4100);

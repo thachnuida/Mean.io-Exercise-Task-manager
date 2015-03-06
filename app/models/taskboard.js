@@ -4,6 +4,7 @@ mongoose.connect('mongodb://localhost/taskboard');
 /* Project */
 var ProjectSchema = mongoose.Schema ({
 	projectname: String,
+	description: String,
 	datecreated: {type: Date, default: Date.now},
 	userofproject: [UserSchema]
 })
@@ -16,10 +17,10 @@ var TaskSchema = mongoose.Schema ({
 	title: String,
 	description: String,
 	tags: String,
-	taskassign:[{
-		assign: { type: String, ref: 'User'}
-	}],
 	datecreated: { type: Date, default: Date.now },
+	taskassign:[{
+		assign: { type: mongoose.Schema.ObjectId, ref: 'User'}
+	}],
 	taskhistory: [{
 		datecreated: Date,
 		datefinished: Date,
@@ -40,8 +41,6 @@ var UserSchema = mongoose.Schema({
 	email: String,
 	password: String
 })
-
 mongoose.model('User', UserSchema);
 var UserModel = mongoose.model('User');
 
-// task_history_id: {type: Schema.Types.ObjectId};

@@ -1,3 +1,17 @@
+
+@media only screen and (max-width: 500px) {
+    body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+.container-1 {
+    margin-top: 10px;
+    width: 1200px;
+    margin: auto;
+    padding: 0;
+}
+}
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -8,8 +22,8 @@ a {
 }
 
 .form-control {
-    min-width: 0;
-    width: 650px;
+    min-width: auto;
+    max-width: 650px;
     display: inline;
     padding: 20px 12px 20px 30px;
 }
@@ -29,10 +43,37 @@ a {
     padding: 0;
 }
 
-.span3{
-    height: 530px;
+.span3-todo{
+    min-height: 520px;
+    max-height: auto;
+    width:  270px;
     border: 1.5px solid black;
-    
+    display: inline-block;
+    background-color: #92dce0;
+}
+.span3-doing{
+    min-height: 520px;
+    max-height: auto;
+    width:  270px;
+    border: 1.5px solid black;
+    display: inline-block;
+    background-color: #5bb12f;
+}
+.span3-review{
+    min-height: 520px;
+    max-height: auto;
+    width:  270px;
+    border: 1.5px solid black;
+    display: inline-block;
+    background-color: #77ba9b;
+}
+.span3-done{
+    min-height: 520px;
+    max-height: auto;
+    width:  270px;
+    border: 1.5px solid black;
+    display: inline-block;
+    background-color: #b6a754;
 }
 #header-1{
     border-bottom: 1px solid black;
@@ -49,9 +90,10 @@ a {
 /*create*/
 .container-2 {
     border: 2px solid blue;
-    margin:50px 200px 80px 200px; 
+    /*margin:50px 200px 80px 200px; */
+    margin: auto;
     padding: 20px 30px 20px 30px;
-	text-align:center;
+	  text-align:center;
 }
 
 /*view task*/
@@ -104,7 +146,7 @@ p{
 }
 /*modal*/
 
-.form-control-3 {
+/*.form-control-3 {
 	width: 200px;
 	height: 50px;
 	padding: 20px 0 20px 0;
@@ -123,7 +165,7 @@ p{
 	padding: 20px 40px 20px 50px;
   width: 300px;
 }
-
+*/
 /*.button-create-date{
 
   display: inline;
@@ -135,18 +177,3 @@ p{
   border-radius: .25em;
 }*/
 
-.assign-for {
-  border: 2px solid gray;
-  padding: 20px 40px 20px 50px;
-  margin: 10px 10px 5px 310px;
-  width: 300px;
-  height: 200px;
-}
-
-.add-member {
-  border: 2px solid blue;
-  padding: 20px 40px 20px 50px;
-  margin: 10px 200px 10px 370px;
-  width: 300px;
-  height: 150px;
-}

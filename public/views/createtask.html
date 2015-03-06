@@ -1,24 +1,23 @@
-
 <div class="container-2">
     <h3>Create task</h3>
     <div class="panel-body">
         <div class="form-group">
             <!-- <label>Title:</label> -->
-            <input class="form-control" ng-model="" placeholder="title" />
+            <input class="form-control" ng-model="task.title" placeholder="title" />
         </div>
         <div class="form-group">
             <!-- <label>Description:</label> -->
-            <input class="form-control" ng-model="" placeholder="description" />
+            <input class="form-control" ng-model="task.description" placeholder="description" />
         </div>
         <div class="form-group">
             <!-- <label>Tags:</label> -->
-            <input class="form-control" ng-model="" placeholder="tags, tag1, tag2" />
+            <input class="form-control" ng-model="task.tags" placeholder="tags, tag1, tag2" />
         </div>
         <div class="form-group">
             <!-- <label>Assign:</label> -->
-            <input class="form-control" ng-model="" placeholder="assign to: user1, user2" />
+            <input class="form-control" ng-model="task.taskassign" placeholder="assign to: user1, user2" />
         </div>
-        <button style="margin: 10px 50px 10px 50px; padding: 5px 25px 5px 25px;"class="btn btn-primary" ng-click="">Create</button>
-        <button style="margin: 10px 50px 10px 50px; padding: 5px 25px 5px 25px;"class="btn btn-primary" ng-click="">Cancel</button>
+        <button style="margin: 10px 50px 10px 50px; padding: 5px 25px 5px 25px;"class="btn btn-primary" ng-click="createTask(task)">Create</button>
+        <button style="margin: 10px 50px 10px 50px; padding: 5px 25px 5px 25px;"class="btn btn-primary" ng-click="reset()">Cancel</button>
     </div>
 </div>

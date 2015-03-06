@@ -1,27 +1,25 @@
 <div class="container-3">
     <div id="header-2">
-        <h3>View task: Task title ... </h3>
+        <h3>View task: Task title: {{task.title}} </h3>
     </div>
-
     <div class="panel-body">
         <div class="row">
             <div class="col-md-8">
-                <div class="panel">
-                    <p class="text-left"> Description: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+           <div class="panel">
+                    <p class="text-left">Description: {{task.description}}</p>
                 </div>
                 <div class="panel">
-                    <p> Tag: tag1, tag2, tag3...</p>
+                    <p> Tag: {{task.tags}}</p>
                 </div>
                 <div class="panel">
-                    <p> Assigned to: </p>
+                    <p> Assigned to: {{task.taskassign}}</p>
                 </div>
                 <div class="form-group">
                     <label>Comment:</label>
-                    <input type="comment" class="form-control-1" id="comment" placeholder="Comment here...">
+                    <input type="comment" class="form-control" id="comment" placeholder="Comment here...">
                 </div>
             </div>
-
-            <div class="col-md-4">
+        <div class="col-md-4">
                 <div>
                     <h3> History </h3>
                 </div>
@@ -35,16 +33,12 @@
         </div>
 
         <div class="button-size">
-            <button style="margin: 10px 50px 10px 10px; padding: 10px 45px 5px 35px" class="btn btn-primary" ng-click="">Close</button>
-            <button style="margin: 10px 50px 10px 10px; padding: 10px 45px 5px 35px;" class="btn btn-primary" ng-click="">Delete</button>
-            <button style="margin: 10px 50px 10px 10px; padding: 10px 45px 5px 35px;" type="button" class="btn btn-primary"> Assign for
-            </button>
-            <div class="assign-for" style="display:none">
-                <button style="margin: 10px 50px 10px 50px; padding: 5px 25px 5px 25px;" class="btn btn-primary" ng-click="">For me </button>
-                <div class="form-group">
-                    <input class="form-control-3" ng-model="" placeholder="search user name" />
-                </div>
-                <button style="margin: 10px 50px 10px 50px; padding: 5px 25px 5px 25px;" class="btn btn-primary" ng-click=""> OK </button>
-            </div>
+            <button style="margin: 10px 50px 10px 10px; padding: 10px 45px 5px 35px" class="btn btn-primary" ng-click="closeViewTask()">Close</button>
+            <button style="margin: 10px 50px 10px 10px; padding: 10px 45px 5px 35px;" class="btn btn-primary" ng-click="deleteTask(task._id)">Delete Task</button>
+            <!-- <button style="margin: 10px 50px 10px 10px; padding: 10px 45px 5px 35px;" type="button" class="btn btn-primary"> Assign for
+            </button> -->
+
         </div>
     </div>
+
+ 

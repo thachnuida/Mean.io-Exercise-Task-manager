@@ -2,23 +2,22 @@
     <h3>Create project</h3>
     <div class="panel-body">
         <div class="form-group">
-            <!-- <label>Name:</label> -->
-            <input class="form-control" ng-model="" placeholder="Name" />
+           
+            <input class="form-control" ng-model="project.projectname" placeholder="Name" />
         </div>
 
         <div class="form-group">
-            <!-- <label>Name:</label> -->
-            <input class="form-control" ng-model="" placeholder="Description" />
+            
+            <input class="form-control" ng-model="project.description" placeholder="Description" />
         </div>
         <div class="button-size" >
-           
-            <button style="margin: 10px 50px 10px 50px; padding: 5px 25px 5px 25px;" class="btn btn-primary" ng-click="">Create</button>
-            <button style="margin: 10px 50px 10px 50px; padding: 5px 25px 5px 25px;" class="btn btn-primary" ng-click="">Cancel</button>
+            <button style="margin: 10px 50px 10px 50px; padding: 5px 25px 5px 25px;" class="btn btn-primary" ng-click="createProject(project)">Create</button>
+            <button style="margin: 10px 50px 10px 50px; padding: 5px 25px 5px 25px;" class="btn btn-primary" ng-click="cancel()">Cancel</button>
              <button style="margin: 10px 50px 10px 50px; padding: 5px 25px 5px 25px;" class="btn btn-primary" ng-click="">Add members</button>
             <div class="add-member" style="display:none">
                 <label> Member </label>
                 <div class="form-group">
-                    <input class="form-control-3" ng-model="" placeholder="search member"/>
+                    <input class="form-control-3"  placeholder="search member"/>
                 </div>
             </div>
         </div>
