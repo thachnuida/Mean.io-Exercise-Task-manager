@@ -6,7 +6,8 @@ var ProjectSchema = mongoose.Schema ({
 	projectname: String,
 	description: String,
 	datecreated: {type: Date, default: Date.now},
-	userofproject: [UserSchema]
+	userofproject: [UserSchema],
+	taskId: {type: mongoose.Schema.ObjectId, ref :'Task'}
 })
 
 mongoose.model('Project', ProjectSchema);
@@ -32,7 +33,6 @@ var TaskSchema = mongoose.Schema ({
 	}],
 	projectId: {type: mongoose.Schema.ObjectId, ref: 'Project'}
 })
-
 
 mongoose.model('Task',TaskSchema );
 var TaskModel = mongoose.model('Task');

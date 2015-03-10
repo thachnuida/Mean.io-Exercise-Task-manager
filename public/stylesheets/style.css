@@ -4,18 +4,14 @@
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-.container-1 {
+/*.container-1 {
     margin-top: 10px;
     width: 1200px;
     margin: auto;
     padding: 0;
-}
+}*/
 }
 
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
 
 a {
   color: #00B7FF;
@@ -27,53 +23,54 @@ a {
     display: inline;
     padding: 20px 12px 20px 30px;
 }
-.date {
+/*.date {
     width: 200px;
     height: 35px;
     display: inline;
-   /* padding: 10px 1px 20px 30px;*/
+    padding: 10px 1px 20px 30px;
     margin: 10px 340px 10px 20px;
 
-}
+}*/
 
-.container-1 {
+/*.container-1 {
     margin-top: 10px;
     width: 1200px;
     margin: auto;
     padding: 0;
-}
+}*/
 
 .span3-todo{
     min-height: 520px;
     max-height: auto;
     width:  270px;
-    border: 1.5px solid black;
+    /*border: 1.5px solid black;*/
     display: inline-block;
-    background-color: #92dce0;
+    background-color: #c3dae3;
 }
+
 .span3-doing{
     min-height: 520px;
     max-height: auto;
     width:  270px;
-    border: 1.5px solid black;
+   
     display: inline-block;
-    background-color: #5bb12f;
+   
 }
 .span3-review{
     min-height: 520px;
     max-height: auto;
     width:  270px;
-    border: 1.5px solid black;
+    
     display: inline-block;
-    background-color: #77ba9b;
+   
 }
 .span3-done{
     min-height: 520px;
     max-height: auto;
     width:  270px;
-    border: 1.5px solid black;
+    
     display: inline-block;
-    background-color: #b6a754;
+   
 }
 #header-1{
     border-bottom: 1px solid black;
@@ -83,18 +80,18 @@ a {
 }
 
 .row-1{
-    border: 2px solid blue;
+   
     margin: 10px;
     padding: 4px 4px 4px 4px;
-}
+}*/
 /*create*/
-.container-2 {
+/*.container-2 {
     border: 2px solid blue;
-    /*margin:50px 200px 80px 200px; */
+    margin:50px 200px 80px 200px; 
     margin: auto;
     padding: 20px 30px 20px 30px;
 	  text-align:center;
-}
+}*/
 
 /*view task*/
 .col-md-8{
@@ -131,7 +128,7 @@ a {
 	padding-top: 1px;
 }
 .text-left {
-	font-size: 120%;
+	font-size: 100%;
 
 }
 p{
@@ -144,38 +141,6 @@ p{
 .form-group {
 	padding-top: 5px;
 }
-/*modal*/
-
-/*.form-control-3 {
-	width: 200px;
-	height: 50px;
-	padding: 20px 0 20px 0;
-	text-align: center;
-}
-.modal.fade.in{
-   top: 80%;
-   left: 77%;
-   width: 300px;
-   margin: -100px 0 0 -280px;
-   background-color: white;
-   border: 1px solid #999;
-   z-index: 1050;
-}
-.modal-content{
-	padding: 20px 40px 20px 50px;
-  width: 300px;
-}
-*/
-/*.button-create-date{
-
-  display: inline;
-  padding: .2em .6em .3em;
-  font-size: 120%;
-  line-height: 1;
-  text-align: center;
-  vertical-align: baseline;
-  border-radius: .25em;
-}*/
 
 body {
   font-family: 'Lucida Grande', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -186,15 +151,16 @@ body {
 }
 
 ul {
-  text-align: left;
+ /* text-align: left;
   display: inline;
-  margin: 0;
-  padding: 15px 4px 17px 0;
-  list-style: none;
+  margin: 0;*/
+  padding: 20px 4px 17px 0;
+  /*list-style: none;
   -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
   -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);*/
 }
+
 ul li {
   font: bold 12px/18px sans-serif;
   display: inline-block;
@@ -242,4 +208,63 @@ ul li:hover ul {
   display: block;
   opacity: 1;
   visibility: visible;
+}
+
+#l-story-status {
+    margin-top: 16px;
+}
+
+#l-story-status li {
+    background-color: #1d2f3e;
+    color: #FFFFFF;
+    font-size: 1.3em;
+    width: 25%;
+    padding: 5px 0 5px 0;
+    text-align: center;
+    font-weight: normal;
+    list-style-type: none;
+    float: left;
+}
+
+#l-task-dropzone {
+    background-color: #FFFFFF;
+}
+
+.l-button-icon {
+    display: inline-block;
+    width: 14px;
+    height: 18px;
+    margin: 0;
+    padding: 0;
+}
+
+.task-item {
+    width: 100%;
+    border-radius: 0;
+    background-color: #54D0ED;
+    margin-top: 3px;
+    padding: 5px;
+    cursor : move;
+}
+
+.task-item .deleteTaskButton {
+    float: right;
+    margin-right: 0;
+    margin-top: -4px;
+}
+.task-list li {
+    width: 29%;
+    padding-top: 2px;
+    padding-bottom: 5px;
+    list-style-type: none;
+    font-size: 0.8em;
+}
+
+.task-item {
+    width: 100%;
+    border-radius: 0;
+    background-color: #54D0ED;
+    margin-top: 3px;
+    padding: 5px;
+    cursor : move;
 }

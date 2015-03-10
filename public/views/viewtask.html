@@ -1,20 +1,23 @@
 
 <div class="container-3">
     <div id="header-2">
-        <h3>View task: Task title: {{task.title}} </h3>
+        <h3>View task: {{task.title}} </h3>
     </div>
     <div class="panel-body">
         <div class="row">
-            <div class="col-md-8">
+        <div class="col-md-8">
+           <label>Description:</label>
            <div class="panel">
-                    <p class="text-left">Description: {{task.description}}</p>
-                </div>
-                <div class="panel">
-                    <p> Tag: {{task.tags}}</p>
-                </div>
-                <div class="panel">
-                    <p> Assigned to: {{task.taskassign}}</p>
-                </div>
+                <p class="text-left">{{task.description}}</p>
+            </div>
+             <label>Tags:</label>
+            <div class="panel">
+                <p class="text-left">{{task.tag}}</p>
+            </div>
+            <label>Assign to:</label>
+            <div class="panel">
+            <p class="text-left">{{task.taskassign}}</p>
+            </div>
                 <div class="form-group">
                     <label>Comment:</label>
                     <input type="comment" class="form-control" id="comment" placeholder="Comment here...">
@@ -36,8 +39,6 @@
         <div class="button-size">
             <button style="margin: 10px 50px 10px 10px; padding: 10px 45px 5px 35px" class="btn btn-primary" ng-click="closeViewTask()">Close</button>
             <button style="margin: 10px 50px 10px 10px; padding: 10px 45px 5px 35px;" class="btn btn-primary" ng-click="deleteTask(task._id)">Delete Task</button>
-            <!-- <button style="margin: 10px 50px 10px 10px; padding: 10px 45px 5px 35px;" type="button" class="btn btn-primary"> Assign for
-            </button> -->
 
         </div>
     </div>

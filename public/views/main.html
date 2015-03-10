@@ -1,90 +1,51 @@
- <div> 
-<ul><li>Home</li>
-  <li>
-    Project
+ <div>
     <ul>
-         <li ng-repeat="project in projects"> 
-         <a href="#/viewproject/{{ project._id }}" >{{project.projectname}}</a></li>
+        <li>Home</li>
+        <li>
+            Project
+            <ul>
+                <li ng-repeat="project in projects">
+                    <a href="#/viewproject/{{ project._id }}">{{project.projectname}}</a></li>
+            </ul>
+        </li>
+        <li>About</li>
+        <li>Contact</li>
     </ul>
-  </li>
-  <li>About</li>
-  <li>Contact</li>
-</ul>
 </div>
 
-   <!-- Button trigger modal -->
-<button id="demo"type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" style="margin:10px">
- Create project
+<!-- Button trigger modal -->
+<button id="demo" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" style="margin:10px" >
+    Create project
 </button>
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Create new project</h4>
-      </div>
-      <div class="modal-body">
-        <div class="form-group">
-            <input class="form-control" ng-model="project.projectname" placeholder="Name" />
-        </div>
-        <div class="form-group">
-            <input class="form-control" ng-model="project.description" placeholder="Description"/>
-        </div>
-        <!--  <div class="form-group">
-            <input class="form-control"  placeholder="Add member" />
-        </div> -->
-        <div class="form-group move-down">
-        <label for="Autocomplete">Add member</label>
-        <input type="text" id="Autocomplete" class="form-control" ng-autocomplete="result1" details="details1" options="options1"/>
-       </div>
-
-      
-      </div>
-      <div class="modal-footer">
-         <div class="button-size" >
-            <button type="button" class="btn btn-primary" ng-click="createProject(project)"class="close" data-dismiss="modal" aria-label="Close">Create</button>
-            <button class="btn btn-primary" ng-click="cancel()">Cancel</button>
-           
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- <div class="container-1">
-    <div class="span3-todo">
-        <div id="header-1">
-            <h3>TO DO</h3>
-        </div>
-        <div ng-repeat="task in tasks">
-            <div class="row-1">
-                <p>Task: </p>
-                <p ng-click="viewDetailTaskId(task._id)"> {{task.title}} </p>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Create new project</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <input class="form-control" ng-model="project.projectname" placeholder="Name" />
+                </div>
+                <div class="form-group">
+                    <input class="form-control" ng-model="project.description" placeholder="Description" />
+                </div>
+                <div class="form-group move-down">
+                    <label for="Autocomplete">Add member</label>
+                    <input type="text" id="Autocomplete" class="form-control" ng-autocomplete="result1" details="details1" options="options1" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="button-size">
+                    <button type="button" class="btn btn-primary" ng-click="createProject(project)" class="close" data-dismiss="modal" aria-label="Close">Create</button>
+                    <button class="btn btn-primary" ng-click="cancel()">Clear</button>
+                    <button class="btn btn-primary"  class="close" data-dismiss="modal" aria-label="Close">Cancel</button>
+                </div>
             </div>
         </div>
-        <div class="btn btn-primary" style="margin: 320px 20px 30px 85px; padding: 5px 25px 5px 25px;" ng-click="createNewTask()">Create</div>
     </div>
-    <div class="span3-doing">
-        <div id="header-1">
-            <h3>DOING</h3>
-        </div>
-        <div class="row-1">
-            <p></p>
-        </div>
-    </div>
-    <div class="span3-review">
-        <div id="header-1">
-            <h3>REVIEW</h3>
-        </div>
-    </div>
-    <div class="span3-done">
-        <div id="header-1">
-            <h3>DONE</h3>
-        </div>
-    </div>
-</div> 
+</div>
 
-
-            -->

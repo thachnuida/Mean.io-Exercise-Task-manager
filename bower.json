@@ -10,5 +10,9 @@
     "bootstrap": "3.0.3",
     "angular-bootstrap": "~0.12.1",
     "angular-ui-router": "#master"
+  },
+  "resolutions": {
+    "angular": "1.2.26",
+    "bootstrap": "3.0.3"
   }
 }
