@@ -61,7 +61,8 @@ router.post('/task', function(req, resp) {
         datecreated: req.body.datecreated,
         taskhistory: req.body.taskhistory,
         taskcomment: commentUserId,
-        projectId : req.body.projectId
+        projectId : req.body.projectId,
+        drag:req.body.drag
     });
     console.log(req.body.title);
     task.save(function(err, taskData) {
@@ -90,7 +91,8 @@ router.post('/task/projectId/:projectId', function(req, resp) {
         datecreated: req.body.datecreated,
         taskhistory: req.body.taskhistory,
         taskcomment: commentUserId,
-        projectId : req.body.projectId
+        projectId : req.body.projectId,
+        drag : req.body.drag
     });
     
     task.save(function(err, taskData) {
@@ -126,6 +128,7 @@ router.put('/task/:id', function(req, resp) {
         task.datecreated = req.body.datecreated;
         task.taskhistory = req.body.taskhistory;
         task.taskcomment = req.body.taskcomment;
+        task.drag = req.body.drag;
 
         return task.save(function(err) {
             if (!err) {

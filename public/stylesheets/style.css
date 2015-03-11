@@ -268,3 +268,34 @@ ul li:hover ul {
     padding: 5px;
     cursor : move;
 }
+
+
+.task-drop-target {
+    position: absolute;
+    width: 22%;
+    list-style-type: none;
+    border-radius: 0;
+    background-color: #25d3e8;
+}
+#task-drop-target-todo {
+    left: 4%;
+}
+
+#task-drop-target-doing {
+    left: 27%;
+}
+
+#task-drop-target-review {
+    left: 50%;
+}
+#task-drop-target-done {
+    left: 73%;
+}
+
+.task-list li {
+    width: 29%;
+    padding-top: 2px;
+    padding-bottom: 5px;
+    list-style-type: none;
+    font-size: 0.8em;
+}

@@ -31,7 +31,8 @@ var TaskSchema = mongoose.Schema ({
 		comment: {type:String, ref:'User'},
 		datecreated: {type: Date, default: Date.now}
 	}],
-	projectId: {type: mongoose.Schema.ObjectId, ref: 'Project'}
+	projectId: {type: mongoose.Schema.ObjectId, ref: 'Project'},
+	drag: { type: Boolean, default: true } 
 })
 
 mongoose.model('Task',TaskSchema );

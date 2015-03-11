@@ -1,20 +1,6 @@
 angular.module('taskboardApp')
 
 .controller('TaskCtrl', function($scope, $http, $stateParams, $state) {
-    // $scope.userTags = [
-    //   "Thuy",
-    //   "Hoa",
-    //   "Hien",
-    //   "Mai",
-    //   "Thao"
-    // ];
-
-    // $scope.complete=function(){
-    // $( "#tags" ).autocomplete({
-    //   source: $scope.userTags
-    // });
-    // } 
-
 
     var id = $stateParams.id;
 
@@ -43,7 +29,6 @@ angular.module('taskboardApp')
                 $scope.projects = data;
             });
     };
-
     $scope.viewProject();
 })
 
@@ -115,7 +100,7 @@ angular.module('taskboardApp')
 
     $scope.reset = function() {
         $scope.task = [];
-   };
+    };
      
     //use id in url $state.go with id
 
@@ -123,7 +108,6 @@ angular.module('taskboardApp')
         $http.get('http://localhost:4100/task/' + id)
             .success(function(data) {
                 console.log(projectId);
-                //$scope.task.projectId = projectId;
                 console.log(data);
                 $scope.tasks = data;
                 $state.go('viewTask', {
@@ -132,6 +116,22 @@ angular.module('taskboardApp')
                 $scope.tasks = data;
             });
     };
+//drag and drop task in viewproject
+  $scope.tasks = [];
+  $scope.tasks1 = [];
+  $scope.tasks2 = [];
+  $scope.tasks3 = [];
+
+  // Limit items to be dropped in list1
+  $scope.optionsList1 = {
+    accept: function(dragEl) {
+      if ($scope.tasks.length >= 2) {
+        return false;
+      } else {
+        return true;
+      }
+    }
+  };
 })
 
 .controller('viewTaskCtrl', function($scope, $http, $stateParams, $state) {
