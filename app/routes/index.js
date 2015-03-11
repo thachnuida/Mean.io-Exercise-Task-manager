@@ -129,7 +129,6 @@ router.put('/task/:id', function(req, resp) {
         task.datecreated = req.body.datecreated;
         task.taskhistory = req.body.taskhistory;
         task.taskcomment = req.body.taskcomment;
-        task.projectId = req.body.projectId;
         task.drag = req.body.drag;
         task.state = req.body.state
 

@@ -6,10 +6,8 @@ angular.module('taskboardApp')
 
     $scope.tasks = [];
 
-    $scope.projects = [];
-
-    $scope.createProject = function(projects) {
-        $http.post('http://localhost:4100/project/', projects)
+    $scope.createProject = function(project) {
+        $http.post('http://localhost:4100/project/', project)
             .success(function(data) {
                 console.log(data);
                 $state.go('home');
@@ -39,8 +37,7 @@ angular.module('taskboardApp')
     $scope.createTask = function(task) {
         $http.post('http://localhost:4100/task/', task)
             .success(function(data) {
-                console.log(data);
-                // $scope.tasks = data; 
+                console.log(data); 
                 $state.go('home');
             });
     };
@@ -175,10 +172,9 @@ angular.module('taskboardApp')
 
 .controller('ProjectCtrl', function($scope, $http, $stateParams, $state) {
     var id = $stateParams.id;
-    $scope.projects = [];
 
-    $scope.createProject = function(projects) {
-        $http.post('http://localhost:4100/project/', projects)
+    $scope.createProject = function(project) {
+        $http.post('http://localhost:4100/project/', project)
             .success(function(data) {
                 console.log(data);
                 $state.go('home');
@@ -197,7 +193,6 @@ angular.module('taskboardApp')
     $http.get('http://localhost:4100/task/' + taskId).then(function(resp){
       console.log('Success', resp);
       $scope.task = resp.data;
-    // angular.copy($scope.task, $scope.copy);
     }, function(err){
       console.error('ERR', err);
     })
@@ -212,12 +207,11 @@ angular.module('taskboardApp')
         $scope.task = [];
     };
 
-
-    $scope.task = {};
-    $scope.saveEditTask  = function(){
-
-        $http.put('http://localhost:4100/task/' + taskId).then(function(resp){
+    $scope.saveEditTask  = function(task){
+        console.log(task);
+        $http.put('http://localhost:4100/task/' + taskId, task).then(function(resp){
           console.log('Success', resp);
+
           $scope.task = resp.data;
         }, function(err){
           console.error('ERR', err);
@@ -230,9 +224,6 @@ angular.module('taskboardApp')
         });
     }
 })
-
-// 1.get data
-// 2. scope.task data
-// 3. click save {
-//     put 
-// }
+// 1 get data
+// 2 $scope.tasks = data ?
+// 3 $http put
