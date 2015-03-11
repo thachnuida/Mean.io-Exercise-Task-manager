@@ -1,0 +1,23 @@
+<div class="panel-body">
+    <div class="form-group">
+        <label>Title:</label>
+        <input class="form-control" ng-model="task.title" />
+    </div>
+    <div class="form-group">
+        <label>Description:</label>
+        <input class="form-control" ng-model="task.description" />
+    </div>
+    <div class="form-group">
+        <label>Assign to:</label>
+        <input class="form-control" ng-model="task.taskassign" />
+    </div>
+    <div class="form-group">
+        <label>Comment:</label>
+        <input class="form-control" ng-model="task.comment" />
+    </div>
+
+    <button class="btn btn-primary" ng-click="saveEditTask(task._id)">Save</button>
+    <button class="btn btn-primary" ng-click="cancelEdit()">Cancel</button>
+     <button class="btn btn-primary" ng-click="exitEditTask()">Exit</button>
+    
+</div>

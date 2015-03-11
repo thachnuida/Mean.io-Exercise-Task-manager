@@ -32,7 +32,8 @@ var TaskSchema = mongoose.Schema ({
 		datecreated: {type: Date, default: Date.now}
 	}],
 	projectId: {type: mongoose.Schema.ObjectId, ref: 'Project'},
-	drag: { type: Boolean, default: true } 
+	drag: { type: Boolean, default: true },
+	state: String
 })
 
 mongoose.model('Task',TaskSchema );

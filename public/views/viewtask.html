@@ -1,46 +1,33 @@
-
 <div class="container-3">
     <div id="header-2">
-        <h3>View task: {{task.title}} </h3>
+        <h3>View task: {{task.title}}</h3>
     </div>
     <div class="panel-body">
         <div class="row">
         <div class="col-md-8">
+            <label>Title:</label>
+           <div class="panel">
+                <p class="text-left">{{task.title}}</p>
+            </div>
            <label>Description:</label>
            <div class="panel">
                 <p class="text-left">{{task.description}}</p>
             </div>
-             <label>Tags:</label>
-            <div class="panel">
-                <p class="text-left">{{task.tag}}</p>
-            </div>
+            
             <label>Assign to:</label>
             <div class="panel">
             <p class="text-left">{{task.taskassign}}</p>
             </div>
-                <div class="form-group">
-                    <label>Comment:</label>
-                    <input type="comment" class="form-control" id="comment" placeholder="Comment here...">
-                </div>
+            <div class="form-group">
+                <label>Comment:</label>
+                <input type="comment" class="form-control" id="comment" placeholder="Comment here...">
             </div>
-        <div class="col-md-4">
-                <div>
-                    <h3> History </h3>
-                </div>
-                <div>
-                    <p> 09/13/14, 5am, create by ... </p>
-                </div>
-                <div>
-                    <p> 09/16/14, move to Doing </p>
-                </div>
             </div>
-        </div>
 
         <div class="button-size">
-            <button style="margin: 10px 50px 10px 10px; padding: 10px 45px 5px 35px" class="btn btn-primary" ng-click="closeViewTask()">Close</button>
-            <button style="margin: 10px 50px 10px 10px; padding: 10px 45px 5px 35px;" class="btn btn-primary" ng-click="deleteTask(task._id)">Delete Task</button>
-
+            <button class="btn btn-primary" ng-click="editTask()">Edit</button>
+            <button class="btn btn-primary" ng-click="closeViewTask()">Close</button>
+            <button class="btn btn-primary" ng-click="deleteTask(task._id)">Delete Task</button>
         </div>
     </div>
 
- 

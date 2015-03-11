@@ -14,7 +14,6 @@ router.get('/', function(req, res, next) {
 });
 
 /*CRUD task*/
-
 router.get('/task/', function(req, resp) {
     return TaskModel.find(function(err, task) {
         if (!err) {
@@ -62,7 +61,8 @@ router.post('/task', function(req, resp) {
         taskhistory: req.body.taskhistory,
         taskcomment: commentUserId,
         projectId : req.body.projectId,
-        drag:req.body.drag
+        drag:req.body.drag,
+        state: req.body.state
     });
     console.log(req.body.title);
     task.save(function(err, taskData) {
@@ -92,7 +92,8 @@ router.post('/task/projectId/:projectId', function(req, resp) {
         taskhistory: req.body.taskhistory,
         taskcomment: commentUserId,
         projectId : req.body.projectId,
-        drag : req.body.drag
+        drag : req.body.drag,
+        state: req.body.state
     });
     
     task.save(function(err, taskData) {
@@ -128,7 +129,9 @@ router.put('/task/:id', function(req, resp) {
         task.datecreated = req.body.datecreated;
         task.taskhistory = req.body.taskhistory;
         task.taskcomment = req.body.taskcomment;
+        task.projectId = req.body.projectId;
         task.drag = req.body.drag;
+        task.state = req.body.state
 
         return task.save(function(err) {
             if (!err) {

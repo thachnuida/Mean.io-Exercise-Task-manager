@@ -24,8 +24,6 @@ angular.module('taskboardApp').config(['$stateProvider', '$urlRouterProvider',
             templateUrl: 'views/viewproject.html'
         })
 
-        
-
         .state('createTask', {
             url: '/createtask',
             resolve: {
@@ -45,19 +43,28 @@ angular.module('taskboardApp').config(['$stateProvider', '$urlRouterProvider',
                 },
             },
             controller: 'ProjectCtrl',
-            //templateUrl: 'views/main.html'
         })
 
         .state('viewTask', {
             url: '/viewtask/:id',
             resolve: {
                 taskId: function($stateParams) {
-                    return $stateParams.id;
+                return $stateParams.id;
                 },
             },
             controller: 'viewTaskCtrl',
             templateUrl: 'views/viewtask.html'
-        });
+        })
 
+        .state('editTask', {
+            url: '/edittask/:id',
+            resolve: {
+                taskId: function($stateParams) {
+                    return $stateParams.id;
+                },
+            },
+            controller: 'editTaskCtrl',
+            templateUrl: 'views/edittask.html'
+        })
     }
 ]);

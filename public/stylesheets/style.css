@@ -17,12 +17,12 @@ a {
   color: #00B7FF;
 }
 
-.form-control {
+/*.form-control {
     min-width: auto;
     max-width: 650px;
     display: inline;
     padding: 20px 12px 20px 30px;
-}
+}*/
 /*.date {
     width: 200px;
     height: 35px;
@@ -100,7 +100,7 @@ a {
 }
 
 .container-3 {
-    border: 1px solid gray;
+    /*border: 1px solid gray;*/
     margin:40px 90px 80px 90px; 
     padding: 20px 40px 20px 40px;
 }
@@ -136,7 +136,7 @@ p{
 
 }
 .button-size{
-	padding: 5px 40px 20px 20px;
+	padding: 5px;
 }
 .form-group {
 	padding-top: 5px;

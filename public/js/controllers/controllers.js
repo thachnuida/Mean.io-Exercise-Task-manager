@@ -132,11 +132,14 @@ angular.module('taskboardApp')
       }
     }
   };
+
+  $scope.updateTask = function(taskid) {
+      $state.go('edit', {id : taskid});
+  };
 })
 
 .controller('viewTaskCtrl', function($scope, $http, $stateParams, $state) {
     $scope.task = {}; 
-
     var id = $stateParams.id;
 
     $http.get('http://localhost:4100/task/' + id).then(function(resp){
@@ -163,6 +166,11 @@ angular.module('taskboardApp')
                     'id': $scope.projectId
                 });
     };
+    $scope.editTask = function(){
+        $state.go('editTask',{
+            'id': id
+        });
+    }
 })
 
 .controller('ProjectCtrl', function($scope, $http, $stateParams, $state) {
@@ -180,6 +188,51 @@ angular.module('taskboardApp')
     $scope.cancel = function() {
         $scope.project = [];
     };
-
-
 })
+
+.controller('editTaskCtrl', function($scope, $http, taskId, $state) {
+    //var id = $stateParams.id;
+    $scope.task = {};
+
+    $http.get('http://localhost:4100/task/' + taskId).then(function(resp){
+      console.log('Success', resp);
+      $scope.task = resp.data;
+    // angular.copy($scope.task, $scope.copy);
+    }, function(err){
+      console.error('ERR', err);
+    })
+
+    $scope.cancelEdit = function() {
+        $http.get('http://localhost:4100/task/' + taskId).then(function(resp){
+          console.log('Success', resp);
+          $scope.task = resp.data;
+        }, function(err){
+          console.error('ERR', err);
+        })
+        $scope.task = [];
+    };
+
+
+    $scope.task = {};
+    $scope.saveEditTask  = function(){
+
+        $http.put('http://localhost:4100/task/' + taskId).then(function(resp){
+          console.log('Success', resp);
+          $scope.task = resp.data;
+        }, function(err){
+          console.error('ERR', err);
+        })
+    };
+
+    $scope.exitEditTask = function(){
+             $state.go('viewTask',{
+            'id': taskId
+        });
+    }
+})
+
+// 1.get data
+// 2. scope.task data
+// 3. click save {
+//     put 
+// }
