@@ -9,7 +9,8 @@
     "angular-route": "latest",
     "bootstrap": "3.0.3",
     "angular-bootstrap": "~0.12.1",
-    "angular-ui-router": "#master"
+    "angular-ui-router": "#master",
+    "ng-tags-input": "2.2.0"
   },
   "resolutions": {
     "angular": "1.2.26",

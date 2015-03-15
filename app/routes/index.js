@@ -35,6 +35,18 @@ router.get('/task/projectId/:projectId', function(req, resp) {
         }
     });
 });
+//get state
+
+// router.get('/task/:state', function(req, resp) {
+//     TaskModel.find({state: req.params.state}, function(err, task) {
+//         if (!err) {
+//             return resp.send(task);
+//         } else {
+//             console.log(err);
+//             return resp.send('ERROR');
+//         }
+//     });
+// });
 
 //get TaskId
 router.get('/task/:id', function(req, resp) {

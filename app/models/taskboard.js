@@ -27,10 +27,7 @@ var TaskSchema = mongoose.Schema ({
 		datefinished: {type: Date, default: Date.now},
 		timemove: {type: Date, default: Date.now},
 	}],
-	taskcomment: [{
-		comment: {type:String, ref:'User'},
-		datecreated: {type: Date, default: Date.now}
-	}],
+	taskcomment: String,
 	projectId: {type: mongoose.Schema.ObjectId, ref: 'Project'},
 	drag: { type: Boolean, default: true },
 	state: String
@@ -47,4 +44,3 @@ var UserSchema = mongoose.Schema({
 })
 mongoose.model('User', UserSchema);
 var UserModel = mongoose.model('User');
-

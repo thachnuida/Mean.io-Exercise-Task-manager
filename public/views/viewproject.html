@@ -8,6 +8,7 @@
     <li>Review </li>
     <li>Done </li>
 </ul>
+
 <!-- ng-click="viewDetailTaskId(task._id)"-->
 <ul class="taskTargets">
     <li id="task-drop-target-todo" class="task-drop-target" droppable>
@@ -17,7 +18,7 @@
             </div>
         </div>
     </li>
-    <!-- <li id="task-drop-target-doing" class="task-drop-target" droppable>
+    <li id="task-drop-target-doing" class="task-drop-target" droppable>
         <div class="thumbnail" data-drop="true" ng-model='tasks1' data-jqyoui-options="{accept:'.btn-draggable:not([ng-model=tasks1])'}" jqyoui-droppable="{multiple:true}">
             <div class="caption">
                 <div class="btn btn-info btn-draggable" ng-repeat="task in tasks1" ng-show="task.title" data-drag="{{task.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="tasks1" jqyoui-draggable="{index: {{$index}},animate:true}">{{task.title}}</div>
@@ -37,7 +38,7 @@
                 <div class="btn btn-info btn-draggable" ng-repeat="task in tasks3" ng-show="task.title" data-drag="{{task.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="tasks3" jqyoui-draggable="{index: {{$index}},animate:true}">{{task.title}}</div>
             </div>
         </div>
-    </li> -->
+    </li>
 </ul>
 
 <!-- Modal -->
@@ -57,12 +58,12 @@
                 </div>
 
                 <div class="form-group">
-                    <input class="form-control" ng-model="task.tags" placeholder="tags, tag1, tag2" />
+                    <input class="form-control" ng-model="task.state" placeholder="state" />
                 </div>
-                <div class="form-group move-down">
+               <!--  <div class="form-group move-down">
                     <label for="Autocomplete">Assign to</label>
                     <input type="text" id="Autocomplete" class="form-control" ng-autocomplete="result1" details="details1" options="options1" />
-                </div>
+                </div> -->
             </div>
             <div class="modal-footer">
                 <div class="button-size">
@@ -76,4 +77,6 @@
 </div>
 
 <div id="demo" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" style="margin: -110px 50px 100px 2px;height: 30px;width: 100px;">Create Task</div>
-</div>
+
+
+

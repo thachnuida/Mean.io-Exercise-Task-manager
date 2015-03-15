@@ -45,6 +45,16 @@ angular.module('taskboardApp')
     $scope.reset = function() {
         $scope.task = [];
    };
+   
+        $scope.men = ['John','Jack','Mark','Ernie'];
+        $scope.women = ['Jane','Jill','Betty','Mary'];
+        $scope.dropSuccessHandler = function($event,index,array){
+            console.log('dddd');
+            array.splice(index,1);
+        };
+        $scope.onDrop = function($event,$data,array){
+            array.push($data);
+        };
 })
 
 .controller('viewProjectCtrl', function($scope, $http, $stateParams, $state) {
@@ -133,9 +143,20 @@ angular.module('taskboardApp')
   $scope.updateTask = function(taskid) {
       $state.go('edit', {id : taskid});
   };
+
+//drapdrop
+
+        $scope.men = ['John','Jack','Mark','Ernie'];
+        $scope.women = ['Jane','Jill','Betty','Mary'];
+        $scope.dropSuccessHandler = function($event,index,array){
+            array.splice(index,1);
+        };
+        $scope.onDrop = function($event,$data,array){
+            array.push($data);
+        };
 })
 
-.controller('viewTaskCtrl', function($scope, $http, $stateParams, $state) {
+.controller('viewTaskCtrl', function($scope, $http, $stateParams, $state,tags) {
     $scope.task = {}; 
     var id = $stateParams.id;
 
@@ -167,7 +188,22 @@ angular.module('taskboardApp')
         $state.go('editTask',{
             'id': id
         });
-    }
+    };
+
+    $scope.tags = [
+    { text: 'Admin' }
+    ];
+
+  $scope.loadTags = function(query) {
+    return tags.load();
+  };
+  // $scope.tags = [
+  //   { id: 1, name: 'Tag1' },
+  // ];
+   
+  // $scope.loadTags = function(query) {
+  //   return $http.get('http://localhost:4100/user');
+  // };
 })
 
 .controller('ProjectCtrl', function($scope, $http, $stateParams, $state) {
@@ -187,43 +223,62 @@ angular.module('taskboardApp')
 })
 
 .controller('editTaskCtrl', function($scope, $http, taskId, $state) {
-    //var id = $stateParams.id;
     $scope.task = {};
 
-    $http.get('http://localhost:4100/task/' + taskId).then(function(resp){
-      console.log('Success', resp);
-      $scope.task = resp.data;
-    }, function(err){
-      console.error('ERR', err);
+    $http.get('http://localhost:4100/task/' + taskId).then(function(resp) {
+        console.log('Success', resp);
+        $scope.task = resp.data;
+    }, function(err) {
+        console.error('ERR', err);
     })
 
     $scope.cancelEdit = function() {
-        $http.get('http://localhost:4100/task/' + taskId).then(function(resp){
-          console.log('Success', resp);
-          $scope.task = resp.data;
-        }, function(err){
-          console.error('ERR', err);
+        $http.get('http://localhost:4100/task/' + taskId).then(function(resp) {
+            console.log('Success', resp);
+            $scope.task = resp.data;
+        }, function(err) {
+            console.error('ERR', err);
         })
         $scope.task = [];
     };
-
-    $scope.saveEditTask  = function(task){
+    
+// truoc khi put thi lay du lieu tu task.model ve edit roi gui len lai, truyen them
+    $scope.saveEditTask = function(task) {
         console.log(task);
-        $http.put('http://localhost:4100/task/' + taskId, task).then(function(resp){
-          console.log('Success', resp);
-
-          $scope.task = resp.data;
-        }, function(err){
-          console.error('ERR', err);
+        $http.put('http://localhost:4100/task/' + taskId, task).then(function(resp) {
+            console.log('Success', resp);
+            $scope.task = resp.data;
+        }, function(err) {
+            console.error('ERR', err);
         })
-    };
-
-    $scope.exitEditTask = function(){
-             $state.go('viewTask',{
+        $state.go('viewTask', {
             'id': taskId
         });
-    }
+    };
+
+    $scope.tags = [
+    { text: 'Admin' }
+    ];
+
+    $scope.loadTags = function(query) {
+    return tags.load();
+    };
+ 
 })
-// 1 get data
-// 2 $scope.tasks = data ?
-// 3 $http put
+
+.service('tags', function($q) {
+  var tags = [
+    { "text": "Diem Thuy" },
+    { "text": "Thanh Hien" },
+    { "text": "Bich Huy" },
+    { "text": "Anh Nga" },
+    { "text": "Ngoc Anh" },
+    { "text": "Thu Thao" }
+  ];
+
+  this.load = function() {
+    var deferred = $q.defer();
+    deferred.resolve(tags);
+    return deferred.promise;
+  };
+});

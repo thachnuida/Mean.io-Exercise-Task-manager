@@ -8,16 +8,24 @@
         <input class="form-control" ng-model="task.description" />
     </div>
     <div class="form-group">
-        <label>Assign to:</label>
-        <input class="form-control" ng-model="task.taskassign" />
+        <label>Date created:</label>
+        <input class="form-control" ng-model="task.datecreated" />
     </div>
     <div class="form-group">
         <label>Comment:</label>
-        <input class="form-control" ng-model="task.comment" />
+        <input class="form-control" ng-model="task.taskcomment" />
+    </div>
+    
+    <div>
+    <label>Assign to:</label>
+    <tags-input ng-model="tags">
+      <auto-complete source="loadTags($query)"></auto-complete>
+    </tags-input>
     </div>
 
-    <button class="btn btn-primary" ng-click="saveEditTask(task)">Save</button>
-    <button class="btn btn-primary" ng-click="cancelEdit()">Cancel</button>
-     <button class="btn btn-primary" ng-click="exitEditTask()">Exit</button>
-    
+    <button style="margin-top:300px" class="btn btn-primary" ng-click="saveEditTask(task)">Save</button>
+    <button style="margin-top:300px" class="btn btn-primary" ng-click="cancelEdit()">Cancel</button>
 </div>
+
+
+
