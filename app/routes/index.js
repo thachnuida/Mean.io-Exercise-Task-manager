@@ -24,6 +24,18 @@ router.get('/task/', function(req, resp) {
     });
 });
 
+router.get('/task1/', function(req, resp) {
+    return TaskModel.find(function(err, task) {
+        if (!err) {
+            return resp.send(task);
+        } else {
+            return console.log(err);
+        }
+    });
+});
+
+
+
 // get Task  with projectId
 router.get('/task/projectId/:projectId', function(req, resp) {
     TaskModel.find({projectId: req.params.projectId}, function(err, tasks) {
@@ -47,6 +59,21 @@ router.get('/task/projectId/:projectId', function(req, resp) {
 //         }
 //     });
 // });
+ router.put('/updatestatusTask/:id', function(req, resp){
+    return TaskModel.findById(req.params.id, function(err, task) {
+        task.state = req.body.state;
+
+        return task.save(function(err) {
+            if (!err) {
+                console.log('task updated');
+                return resp.send(task);
+            } else {
+                console.log(err);
+                return resp.send('ERROR');
+            }
+        });
+    });
+ })
 
 //get TaskId
 router.get('/task/:id', function(req, resp) {
@@ -60,6 +87,8 @@ router.get('/task/:id', function(req, resp) {
     });
 });
 
+
+
 //post Task
 router.post('/task', function(req, resp) {
     var assignUserId = new mongoose.Schema.ObjectId(req.body.taskassign);
@@ -70,6 +99,7 @@ router.post('/task', function(req, resp) {
         tags: req.body.tags,
         taskassign: assignUserId,
         datecreated: req.body.datecreated,
+        datefinished: req.body.datefinished,
         taskhistory: req.body.taskhistory,
         taskcomment: commentUserId,
         projectId : req.body.projectId,
@@ -101,11 +131,12 @@ router.post('/task/projectId/:projectId', function(req, resp) {
         tags: req.body.tags,
         taskassign: assignUserId,
         datecreated: req.body.datecreated,
+        datefinished: req.body.datefinished,
         taskhistory: req.body.taskhistory,
         taskcomment: commentUserId,
         projectId : req.body.projectId,
-        drag : req.body.drag,
-        state: req.body.state
+        drag : req.body.drag
+        
     });
     
     task.save(function(err, taskData) {
@@ -136,6 +167,7 @@ router.put('/task/:id', function(req, resp) {
         task.title = req.body.title;
         task.description = req.body.description;
         task.datecreated = req.body.datecreated;
+        task.datefinished = req.body.datefinished;
         task.tags = req.body.tags;
         task.taskassign = req.body.taskassign;
         task.datecreated = req.body.datecreated;
@@ -171,7 +203,6 @@ router.delete('/task/:id', function(req, resp) {
 });
 
 /*CRUD User*/
-
 router.get('/user', function(req, resp) {
     return UserModel.find(function(err, user) {
         if (!err) {

@@ -19,6 +19,7 @@ var TaskSchema = mongoose.Schema ({
 	description: String,
 	tags: String,
 	datecreated: { type: Date, default: Date.now },
+	datefinished: {type: Date, default: Date.now},
 	taskassign:[{
 		assign: { type: mongoose.Schema.ObjectId, ref: 'User'}
 	}],
@@ -30,11 +31,15 @@ var TaskSchema = mongoose.Schema ({
 	taskcomment: String,
 	projectId: {type: mongoose.Schema.ObjectId, ref: 'Project'},
 	drag: { type: Boolean, default: true },
-	state: String
+	state: {type: String, default: 'todo'}
 })
 
 mongoose.model('Task',TaskSchema );
 var TaskModel = mongoose.model('Task');
+
+mongoose.model('Task1',TaskSchema );
+var TaskModel = mongoose.model('Task1');
+
 
 /*User, member*/
 var UserSchema = mongoose.Schema({

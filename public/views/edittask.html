@@ -1,4 +1,4 @@
-<div class="panel-body">
+<!-- <div class="panel-body">
     <div class="form-group">
         <label>Title:</label>
         <input class="form-control" ng-model="task.title" />
@@ -26,6 +26,63 @@
     <button style="margin-top:300px" class="btn btn-primary" ng-click="saveEditTask(task)">Save</button>
     <button style="margin-top:300px" class="btn btn-primary" ng-click="cancelEdit()">Cancel</button>
 </div>
+ -->
 
 
+<nav class="top-bar hide-for-small">
+    <ul >
+    <li class="name">
+    Edit task: {{task.title}}
+    </li>
+    </ul>
+    <ul class= "right">
+    <li>
+        <a  ng-click="saveEditTask(task)">Save</a>
+    </li>
+    <li>
+        <a  ng-click="cancelEdit()">Cancel</a>
+    </li>
+    </ul>
+</nav>
 
+<div >
+<table>
+    <tr>
+        <td> <label>Title:</label> <td>
+        <td> 
+               <input class="form-inline" ng-model="task.title" />
+        </td>
+    </tr>
+    <tr>
+        <td> <label>Description:</label> <td>
+        <td> 
+               <input class="form-inline" ng-model="task.description" />
+        </td>
+    </tr>
+    <tr>
+        <td> <label>Date create task:</label> <td>
+        <td> 
+                <input type="datetime-local" class="form-inline" ng-model="task.datecreated" />
+        </td>
+    </tr>
+     <tr>
+        <td> <label>Date finish task:</label> <td>
+        <td> 
+                <input type="datetime-local" class="form-inline" ng-model="task.datefinished" />
+        </td>
+    </tr>
+    <tr>
+        <td> <label>Comment:</label> <td>
+        <td> 
+               <textarea style="height:100px" class="form-inline" rows="3" ng-model="task.taskcomment"></textarea>
+        </td>
+    </tr>
+    <tr>
+        <td>  <label>Assign to:</label> <td>
+        <td> <tags-input ng-model="tags">
+                <auto-complete source="loadTags($query)"></auto-complete>
+            </tags-input> </td>
+    </tr>
+</table>
+</div>
+ 

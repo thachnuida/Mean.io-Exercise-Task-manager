@@ -1,39 +1,53 @@
-<div class="container-3">
-    <div id="header-2">
-        <h3>View task: {{task.title}}</h3>
-    </div>
-    <div class="panel-body">
-        <div class="row">
-        <div class="col-md-8">
-            <label>Title:</label>
-           <div class="panel">
-                <p class="text-left">{{task.title}}</p>
-            </div>
-           <label>Description:</label>
-           <div class="panel">
-                <p class="text-left">{{task.description}}</p>
-            </div>
-            <label>Date:</label>
-            <div class="panel">
-                <p class="text-left">{{task.datecreated}}</p>
-            </div>
-            <div>
-                <label>Assign to:</label>
-                <tags-input ng-model="tags">
-                  <auto-complete source="loadTags($query)"></auto-complete>
-                </tags-input>
-            </div>
-            <div class="form-group">
-                <label>Comment:</label>
-                 <div class="panel">
-                <p class="text-left">{{task.taskcomment}}</p>
-            </div>
-            </div>
-            </div>
-        <div class="button-size">
-            <button class="btn btn-primary" ng-click="editTask()">Edit</button>
-            <button class="btn btn-primary" ng-click="closeViewTask()">Close</button>
-            <button class="btn btn-primary" ng-click="deleteTask(task._id)">Delete Task</button>
-        </div>
-    </div>
+<nav class="top-bar hide-for-small">
+    <ul >
+    <li class="name">
+    View task: {{task.title}}
+    </li>
+    </ul>
+    <ul class= "right">
+    <li>
+        <a  ng-click="editTask()">Edit</a>
+    </li>
+    <li>
+        <a  ng-click="deleteTask(task._id)">Delete</a>
+    </li>
+    <li>
+        <a  ng-click="closeViewTask()">Close</a>
+    </li>
+    </ul>
+</nav>
 
+<div>
+<table>
+    <tr>
+        <td> <label>Title:</label> <td>
+        <td> <div class="panel">
+                <p class="text-left">{{task.title}}</p>
+            </div></td>
+    </tr>
+    <tr>
+        <td> <label>Description:</label> <td>
+        <td> <div class="panel">
+                <p class="text-left">{{task.description}}</p>
+            </div></td>
+    </tr>
+    <tr>
+        <td> <label>Date create task:</label> <td>
+        <td> <div class="panel">
+                <p class="text-left">{{task.datecreated}}</p>
+            </div></td>
+    </tr>
+    <tr>
+        <td> <label>Date finish task:</label> <td>
+        <td> <div class="panel">
+                <p class="text-left">{{task.datefinished}}</p>
+            </div></td>
+    </tr>
+    <tr>
+        <td> <label>Comment:</label> <td>
+        <td>  <div class="panel">
+                  <p class="text-left">{{task.taskcomment}}</p>
+            </div></td>
+    </tr>
+</table>
+</div>

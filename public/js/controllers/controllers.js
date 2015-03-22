@@ -46,18 +46,9 @@ angular.module('taskboardApp')
         $scope.task = [];
    };
    
-        $scope.men = ['John','Jack','Mark','Ernie'];
-        $scope.women = ['Jane','Jill','Betty','Mary'];
-        $scope.dropSuccessHandler = function($event,index,array){
-            console.log('dddd');
-            array.splice(index,1);
-        };
-        $scope.onDrop = function($event,$data,array){
-            array.push($data);
-        };
 })
 
-.controller('viewProjectCtrl', function($scope, $http, $stateParams, $state) {
+.controller('viewProjectCtrl', function ($scope, $http, $stateParams, $state) {
     $scope.project = {};
 
     var id = $stateParams.id;
@@ -66,9 +57,6 @@ angular.module('taskboardApp')
         $http.get('http://localhost:4100/project/' +id).then(function(resp){
         console.log('Success', resp);
         $scope.project = resp.data;
-         $state.go('viewProject', {
-                    'id': id
-                });
         }, function(err){
         console.error('ERR', err);
         })
@@ -77,21 +65,37 @@ angular.module('taskboardApp')
     $scope.viewProjectId();
 
     $scope.tasks = [];
+    $scope.tasksDoing =  [];
+    $scope.tasksReview = [];
+    $scope.tasksDone = [];
+    $scope.tasksTodo =  [];
 
     $scope.viewTask = function() {
         $http.get('http://localhost:4100/task/projectId/' +id)
             .success(function(data) {
-                console.log(data);
-                console.log('view task');
+                console.log('view task', data);
                 $scope.tasks = data;
-                  $state.go('viewProject', {
-                    'id': id
-                });
+
+       for(var index = 0; index < $scope.tasks.length; index ++){
+            if ($scope.tasks[index].state == "todo") {
+                $scope.tasksTodo.push($scope.tasks[index])
+            }
+            else if ($scope.tasks[index].state == "doing") {
+                $scope.tasksDoing.push($scope.tasks[index]);
+            }
+            else  if ($scope.tasks[index].state == "review") {
+                $scope.tasksReview.push($scope.tasks[index]);
+            }
+            else  if ($scope.tasks[index].state == "done") {
+                $scope.tasksDone.push($scope.tasks[index]);
+            }
+       }
+
             });
     };
     $scope.viewTask();
 //when post data, truyen tham so $scope.task thi moi lay duoc du lieu tu $scope task
-    $scope.tasks = [];
+  
 
     var projectId = $stateParams.id;
     console.log(projectId);
@@ -101,7 +105,7 @@ angular.module('taskboardApp')
         $http.post('http://localhost:4100/task/projectId/' + projectId, $scope.task)
             .success(function(data) {
                 console.log(data);
-                $scope.tasks.push(data);
+                $scope.tasksTodo.push(data);
             });
     };
 
@@ -123,37 +127,42 @@ angular.module('taskboardApp')
                 $scope.tasks = data;
             });
     };
+
+    $scope.updateTask = function(taskid) {
+    $state.go('edit', {id : taskid});
+  };
+
 //drag and drop task in viewproject
-  $scope.tasks = [];
-  $scope.tasks1 = [];
-  $scope.tasks2 = [];
-  $scope.tasks3 = [];
+  
 
-  // Limit items to be dropped in list1
-  $scope.optionsList1 = {
-    accept: function(dragEl) {
-      if ($scope.tasks.length >= 2) {
-        return false;
-      } else {
-        return true;
-      }
+    $scope.task;
+          
+    $scope.setTaskTodo = function( )
+    {   
+    $http.put('http://localhost:4100/updatestatusTask/' + $scope.task.index, {state : "todo"});
+    
     }
-  };
 
-  $scope.updateTask = function(taskid) {
-      $state.go('edit', {id : taskid});
-  };
+    $scope.setTaskDoing = function( )
+    {   
+    
+    $http.put('http://localhost:4100/updatestatusTask/' + $scope.task.index, {state : "doing"});
+    }
 
-//drapdrop
+    $scope.setTaskReview = function( )
+    {   
+   $http.put('http://localhost:4100/updatestatusTask/' + $scope.task.index, {state : "review"})
+    }
 
-        $scope.men = ['John','Jack','Mark','Ernie'];
-        $scope.women = ['Jane','Jill','Betty','Mary'];
-        $scope.dropSuccessHandler = function($event,index,array){
-            array.splice(index,1);
-        };
-        $scope.onDrop = function($event,$data,array){
-            array.push($data);
-        };
+    $scope.setTaskDone = function( )
+    {   
+    $http.put('http://localhost:4100/updatestatusTask/' + $scope.task.index, {state : "done"});
+    }
+
+  $scope.dragTask = function(event, ui, task){
+    console.log("Drag", task);
+    $scope.task = task;
+  }
 })
 
 .controller('viewTaskCtrl', function($scope, $http, $stateParams, $state,tags) {
@@ -197,30 +206,25 @@ angular.module('taskboardApp')
   $scope.loadTags = function(query) {
     return tags.load();
   };
-  // $scope.tags = [
-  //   { id: 1, name: 'Tag1' },
-  // ];
-   
-  // $scope.loadTags = function(query) {
-  //   return $http.get('http://localhost:4100/user');
-  // };
+ 
 })
 
 .controller('ProjectCtrl', function($scope, $http, $stateParams, $state) {
     var id = $stateParams.id;
 
-    $scope.createProject = function(project) {
-        $http.post('http://localhost:4100/project/', project)
+    $scope.createProject = function() {
+        $http.post('http://localhost:4100/project', $scope.project)
             .success(function(data) {
                 console.log(data);
-                $state.go('home');
-                
+                $scope.project.push(data);
             });
     };
+
     $scope.cancel = function() {
         $scope.project = [];
     };
 })
+
 
 .controller('editTaskCtrl', function($scope, $http, taskId, $state) {
     $scope.task = {};
