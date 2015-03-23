@@ -1,17 +1,14 @@
 angular.module('taskboardApp')
 
-.controller('TaskCtrl', function($scope, $http, $stateParams, $state) {
+.controller('MainCtrl', function($scope, $http, $stateParams, $state) {
 
-    var id = $stateParams.id;
-
-    $scope.tasks = [];
+    $scope.projects = [];
 
     $scope.createProject = function(project) {
         $http.post('http://localhost:4100/project/', project)
             .success(function(data) {
                 console.log(data);
-                $state.go('home');
-                
+                $scope.projects.push(data);
             });
     };
 
@@ -28,6 +25,7 @@ angular.module('taskboardApp')
             });
     };
     $scope.viewProject();
+
 })
 
 .controller('createTaskCtrl', function($scope, $http, $stateParams, $state) {
@@ -130,6 +128,12 @@ angular.module('taskboardApp')
 
     $scope.updateTask = function(taskid) {
     $state.go('edit', {id : taskid});
+
+     $scope.editTask = function(){
+        $state.go('editTask',{
+            'id': id
+        });
+    };
   };
 
 //drag and drop task in viewproject
@@ -209,21 +213,21 @@ angular.module('taskboardApp')
  
 })
 
-.controller('ProjectCtrl', function($scope, $http, $stateParams, $state) {
-    var id = $stateParams.id;
+// .controller('ProjectCtrl', function($scope, $http, $stateParams, $state) {
+//     var id = $stateParams.id;
 
-    $scope.createProject = function() {
-        $http.post('http://localhost:4100/project', $scope.project)
-            .success(function(data) {
-                console.log(data);
-                $scope.project.push(data);
-            });
-    };
+//     $scope.createProject = function(project) {
+//         $http.post('http://localhost:4100/project', project)
+//             .success(function(data) {
+//                 console.log(data);
+//                 $scope.project.push(data);
+//             });
+//     };
 
-    $scope.cancel = function() {
-        $scope.project = [];
-    };
-})
+//     $scope.cancel = function() {
+//         $scope.project = [];
+//     };
+// })
 
 
 .controller('editTaskCtrl', function($scope, $http, taskId, $state) {

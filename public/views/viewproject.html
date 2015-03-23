@@ -16,7 +16,11 @@
      <li id="task-drop-target-todo" class="task-drop-target" droppable>
         <div class="thumbnail" data-drop="true" ng-model='tasksTodo' data-jqyoui-options="{accept:'.btn-draggable:not([ng-model=tasksTodo])'}" jqyoui-droppable="{multiple:true, onDrop:'setTaskTodo()'}">
             <div class="caption">
-                <div class="btn btn-info btn-draggable" ng-repeat="task in tasksTodo" ng-show="task.title" data-drag="{{task.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="tasksTodo" jqyoui-draggable="{index: {{$index}},animate:true, onStart:'dragTask({index: task._id})'}">{{task.title}}</div>
+                <div style="text-align: left" class="btn btn-info btn-draggable" ng-repeat="task in tasksTodo" ng-show="task.title" data-drag="{{task.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="tasksTodo" jqyoui-draggable="{index: {{$index}},animate:true, onStart:'dragTask({index: task._id})'}">{{task.title}}
+                <br>
+                <span class="glyphicon glyphicon-eye-open" ng-click="viewDetailTaskId(task._id)"></span>
+                
+                </div>
             </div>
         </div>
     </li>
@@ -25,7 +29,11 @@
     <li id="task-drop-target-doing" class="task-drop-target" droppable>
         <div class="thumbnail" data-drop="true" ng-model='tasksDoing' data-jqyoui-options="{accept:'.btn-draggable:not([ng-model=tasksDoing])'}" jqyoui-droppable="{multiple:true , onDrop:'setTaskDoing()'}">
             <div class="caption">
-                <div class="btn btn-info btn-draggable" ng-repeat="task in tasksDoing" ng-show="task.title" data-drag="{{task.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="tasksDoing" jqyoui-draggable="{index: {{$index}},animate:true,onStart:'dragTask({index: task._id})'}">{{task.title}}</div>
+                <div style="text-align: left" class="btn btn-info btn-draggable" ng-repeat="task in tasksDoing" ng-show="task.title" data-drag="{{task.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="tasksDoing" jqyoui-draggable="{index: {{$index}},animate:true,onStart:'dragTask({index: task._id})'}">{{task.title}}
+                <br>
+                <span class="glyphicon glyphicon-eye-open" ng-click="viewDetailTaskId(task._id)"></span>
+                
+                </div>
             </div>
         </div>
     </li>
@@ -33,7 +41,10 @@
     <li id="task-drop-target-review" class="task-drop-target" droppable>
         <div class="thumbnail" data-drop="true" ng-model='tasksReview' data-jqyoui-options="{accept:'.btn-draggable:not([ng-model=tasksReview])'}" jqyoui-droppable="{multiple:true, onDrop:'setTaskReview()'}">
             <div class="caption">
-                <div class="btn btn-info btn-draggable" ng-repeat="task in tasksReview" ng-show="task.title" data-drag="{{task.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="tasksReview" jqyoui-draggable="{index: {{$index}},animate:true, onStart:'dragTask({index: task._id})'}">{{task.title}}</div>
+                <div style="text-align: left" class="btn btn-info btn-draggable" ng-repeat="task in tasksReview" ng-show="task.title" data-drag="{{task.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="tasksReview" jqyoui-draggable="{index: {{$index}},animate:true, onStart:'dragTask({index: task._id})'}">{{task.title}}
+                <br>
+                <span class="glyphicon glyphicon-eye-open" ng-click="viewDetailTaskId(task._id)"></span>
+                </div>
             </div>
         </div>
     </li>
@@ -41,7 +52,10 @@
     <li id="task-drop-target-done" class="task-drop-target" droppable>
         <div class="thumbnail" data-drop="true" ng-model='tasksDone' data-jqyoui-options="{accept:'.btn-draggable:not([ng-model=tasksDone])'}" jqyoui-droppable="{multiple:true , onDrop:'setTaskDone()'}">
             <div class="caption">
-                <div class="btn btn-info btn-draggable" ng-repeat="task in tasksDone" ng-show="task.title" data-drag="{{task.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="tasksDone" jqyoui-draggable="{index: {{$index}},animate:true,onStart:'dragTask({index: task._id})'}">{{task.title}}</div>
+                <div style="text-align: left" class="btn btn-info btn-draggable" ng-repeat="task in tasksDone" ng-show="task.title" data-drag="{{task.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="tasksDone" jqyoui-draggable="{index: {{$index}},animate:true,onStart:'dragTask({index: task._id})'}">{{task.title}}
+                    <br>
+                <span class="glyphicon glyphicon-eye-open" ng-click="viewDetailTaskId(task._id)"></span>
+                </div>
             </div>
         </div>
     </li>

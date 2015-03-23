@@ -14,7 +14,7 @@ angular.module('taskboardApp').config(['$stateProvider', '$urlRouterProvider',
 
         .state('home', {
             url: '/home',
-            controller: 'TaskCtrl',
+            controller: 'MainCtrl',
             templateUrl: 'views/main.html'
         })
         
