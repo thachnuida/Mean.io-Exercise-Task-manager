@@ -10,14 +10,6 @@ a {
   color: #00B7FF;
 }
 
-
-/*.form-control {
-    min-width: auto;
-    max-width: 650px;
-    display: inline;
-    padding: 20px 12px 20px 30px;
-}*/
-
 .panel-body {
 	padding-top: 1px;
 }
@@ -81,10 +73,12 @@ ul li {
   -o-transition: all 0.2s;
   transition: all 0.2s;
 }
+
 ul li:hover {
   background: #555;
   color: #fff;
 }
+
 ul li ul {
   padding: 0;
   position: absolute;
@@ -213,7 +207,7 @@ ul li:hover ul {
   float: left;
   width: 20%;
   border: 1px black solid;
-  background: #432f21; 
+  background: #202020; 
 
 }
 
@@ -224,7 +218,7 @@ ul li:hover ul {
 
 .box-right ul li {
 
-  background: #432f21; 
+  background: #202020; 
   display: block; 
   color: #999999;
   text-shadow: 0 -1px 0 #000;
@@ -267,7 +261,7 @@ ul li:hover ul {
 }
 
 .top-bar {
-  background : #333333;
+  background : #0b99bc;
   height: 48px;
   line-height: 48px;
   margin: 0 0 30px ;
@@ -280,13 +274,13 @@ ul li:hover ul {
 height: 45px;
 margin: 0;
 font-size: 20px;
-background: #333333;
+background: #0b99bc;
 color: white;
 }
 .top-bar ul li{
   float: left;
   font-size: 16px;
-  background: #333333;
+  background: #0b99bc;
 
 }
 

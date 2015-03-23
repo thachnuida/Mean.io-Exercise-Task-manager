@@ -3,12 +3,15 @@ angular.module('taskboardApp')
 .controller('MainCtrl', function($scope, $http, $stateParams, $state) {
 
     $scope.projects = [];
+    var id = $stateParams.id;
 
     $scope.createProject = function(project) {
         $http.post('http://localhost:4100/project/', project)
             .success(function(data) {
                 console.log(data);
                 $scope.projects.push(data);
+                $scope.project.projectname = '';
+                $scope.project.description = '';
             });
     };
 
@@ -28,24 +31,6 @@ angular.module('taskboardApp')
 
 })
 
-.controller('createTaskCtrl', function($scope, $http, $stateParams, $state) {
-    var id = $stateParams.id;
-    $scope.tasks = [];
-
-    $scope.createTask = function(task) {
-        $http.post('http://localhost:4100/task/', task)
-            .success(function(data) {
-                console.log(data); 
-                $state.go('home');
-            });
-    };
-
-    $scope.reset = function() {
-        $scope.task = [];
-   };
-   
-})
-
 .controller('viewProjectCtrl', function ($scope, $http, $stateParams, $state) {
     $scope.project = {};
 
@@ -62,12 +47,20 @@ angular.module('taskboardApp')
 
     $scope.viewProjectId();
 
-    $scope.tasks = [];
-    $scope.tasksDoing =  [];
-    $scope.tasksReview = [];
-    $scope.tasksDone = [];
-    $scope.tasksTodo =  [];
+    $scope.deleteProject = function(project) {
+        $http.delete('http://localhost:4100/project/' + id)
+        .success(function (data) {
+            console.log('data', data);
+            $state.go('home');
+        });
+    };
 
+    $scope.tasks       =  [];
+    $scope.tasksTodo   =  [];
+    $scope.tasksDoing  =  [];
+    $scope.tasksReview =  [];
+    $scope.tasksDone   =  [];
+    
     $scope.viewTask = function() {
         $http.get('http://localhost:4100/task/projectId/' +id)
             .success(function(data) {
@@ -92,6 +85,7 @@ angular.module('taskboardApp')
             });
     };
     $scope.viewTask();
+    
 //when post data, truyen tham so $scope.task thi moi lay duoc du lieu tu $scope task
   
 
@@ -104,6 +98,8 @@ angular.module('taskboardApp')
             .success(function(data) {
                 console.log(data);
                 $scope.tasksTodo.push(data);
+                $scope.task.title = '';
+                $scope.task.description = '';
             });
     };
 
@@ -129,7 +125,7 @@ angular.module('taskboardApp')
     $scope.updateTask = function(taskid) {
     $state.go('edit', {id : taskid});
 
-     $scope.editTask = function(){
+    $scope.editTask = function(){
         $state.go('editTask',{
             'id': id
         });
@@ -138,7 +134,6 @@ angular.module('taskboardApp')
 
 //drag and drop task in viewproject
   
-
     $scope.task;
           
     $scope.setTaskTodo = function( )
@@ -155,9 +150,8 @@ angular.module('taskboardApp')
 
     $scope.setTaskReview = function( )
     {   
-   $http.put('http://localhost:4100/updatestatusTask/' + $scope.task.index, {state : "review"})
+    $http.put('http://localhost:4100/updatestatusTask/' + $scope.task.index, {state : "review"})
     }
-
     $scope.setTaskDone = function( )
     {   
     $http.put('http://localhost:4100/updatestatusTask/' + $scope.task.index, {state : "done"});
@@ -203,32 +197,15 @@ angular.module('taskboardApp')
         });
     };
 
-    $scope.tags = [
-    { text: 'Admin' }
-    ];
+  //   $scope.tags = [
+  //   { text: 'Admin' }
+  //   ];
 
-  $scope.loadTags = function(query) {
-    return tags.load();
-  };
+  // $scope.loadTags = function(query) {
+  //   return tags.load();
+  // };
  
 })
-
-// .controller('ProjectCtrl', function($scope, $http, $stateParams, $state) {
-//     var id = $stateParams.id;
-
-//     $scope.createProject = function(project) {
-//         $http.post('http://localhost:4100/project', project)
-//             .success(function(data) {
-//                 console.log(data);
-//                 $scope.project.push(data);
-//             });
-//     };
-
-//     $scope.cancel = function() {
-//         $scope.project = [];
-//     };
-// })
-
 
 .controller('editTaskCtrl', function($scope, $http, taskId, $state) {
     $scope.task = {};
@@ -264,13 +241,13 @@ angular.module('taskboardApp')
         });
     };
 
-    $scope.tags = [
-    { text: 'Admin' }
-    ];
+    // $scope.tags = [
+    // { text: 'Admin' }
+    // ];
 
-    $scope.loadTags = function(query) {
-    return tags.load();
-    };
+    // $scope.loadTags = function(query) {
+    // return tags.load();
+    // };
  
 })
 

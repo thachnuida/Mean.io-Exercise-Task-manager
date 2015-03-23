@@ -1,6 +1,9 @@
-<div style="padding: 20px 50px 150px;">
+<div style="padding: 20px 50px 150px">
     <div>
-    <h1>Project: {{project.projectname}} </h1>
+    <h1>Project: {{project.projectname}} 
+    <span style="margin-left: 970px" class="glyphicon glyphicon-trash" ng-click="deleteProject()">
+    </span>
+    </h1>
 </div>
 
 <ul id="l-story-status">
@@ -10,22 +13,20 @@
     <li>Done </li>
 </ul>
 
-<!-- ng-click="viewDetailTaskId(task._id)"-->
+<!-- ng-click="viewDetailTaskId(task._id)" -->
 <ul class="taskTargets">
-   
+
      <li id="task-drop-target-todo" class="task-drop-target" droppable>
         <div class="thumbnail" data-drop="true" ng-model='tasksTodo' data-jqyoui-options="{accept:'.btn-draggable:not([ng-model=tasksTodo])'}" jqyoui-droppable="{multiple:true, onDrop:'setTaskTodo()'}">
             <div class="caption">
                 <div style="text-align: left" class="btn btn-info btn-draggable" ng-repeat="task in tasksTodo" ng-show="task.title" data-drag="{{task.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="tasksTodo" jqyoui-draggable="{index: {{$index}},animate:true, onStart:'dragTask({index: task._id})'}">{{task.title}}
                 <br>
                 <span class="glyphicon glyphicon-eye-open" ng-click="viewDetailTaskId(task._id)"></span>
-                
                 </div>
             </div>
         </div>
     </li>
                   
-  
     <li id="task-drop-target-doing" class="task-drop-target" droppable>
         <div class="thumbnail" data-drop="true" ng-model='tasksDoing' data-jqyoui-options="{accept:'.btn-draggable:not([ng-model=tasksDoing])'}" jqyoui-droppable="{multiple:true , onDrop:'setTaskDoing()'}">
             <div class="caption">
@@ -66,7 +67,6 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
                 <h4 class="modal-title" id="myModalLabel">Create task on project {{project.projectname}}</h4>
             </div>
             <div class="modal-body">
@@ -74,8 +74,8 @@
                     <input class="form-control" ng-model="task.title" placeholder="title" />
                 </div>
                 <div class="form-group">
-                    <input class="form-control" ng-model="task.description" placeholder="description" />
-                </div>
+                    <textarea class="form-control" rows="6" ng-model="task.description" placeholder="Description"></textarea>
+                </div> 
             </div>
             <div class="modal-footer">
                 <div class="button-size">
@@ -88,10 +88,6 @@
     </div>
 </div>
 
-
 <div id="demo" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" style="margin: -120px 50px 100px 2px;height: 30px;width: 100px;">Create Task</div>
 </div>
-
-
-
 

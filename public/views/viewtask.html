@@ -34,13 +34,13 @@
     <tr>
         <td> <label>Date create task:</label> <td>
         <td> <div class="panel">
-                <p class="text-left">{{task.datecreated}}</p>
+                <p class="text-left">{{task.datecreated  | date:"dd/MM/yyyy 'at' h:mma"}}</p>
             </div></td>
     </tr>
     <tr>
         <td> <label>Date finish task:</label> <td>
         <td> <div class="panel">
-                <p class="text-left">{{task.datefinished}}</p>
+                <p class="text-left">{{task.datefinished | date:"dd/MM/yyyy 'at' h:mma"}}</p>
             </div></td>
     </tr>
     <tr>

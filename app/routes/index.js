@@ -34,8 +34,6 @@ router.get('/task1/', function(req, resp) {
     });
 });
 
-
-
 // get Task  with projectId
 router.get('/task/projectId/:projectId', function(req, resp) {
     TaskModel.find({projectId: req.params.projectId}, function(err, tasks) {
@@ -87,12 +85,10 @@ router.get('/task/:id', function(req, resp) {
     });
 });
 
-
-
 //post Task
 router.post('/task', function(req, resp) {
     var assignUserId = new mongoose.Schema.ObjectId(req.body.taskassign);
-    var commentUserId = new mongoose.Schema.ObjectId(req.body.taskcomment);
+    //var commentUserId = new mongoose.Schema.ObjectId(req.body.taskcomment);
     var task = new TaskModel({
         title: req.body.title,
         description: req.body.description,
@@ -101,7 +97,7 @@ router.post('/task', function(req, resp) {
         datecreated: req.body.datecreated,
         datefinished: req.body.datefinished,
         taskhistory: req.body.taskhistory,
-        taskcomment: commentUserId,
+        taskcomment: req.body.taskcomment,
         projectId : req.body.projectId,
         drag:req.body.drag,
         state: req.body.state
@@ -123,7 +119,7 @@ router.post('/task', function(req, resp) {
 router.post('/task/projectId/:projectId', function(req, resp) {
    
     var assignUserId = new mongoose.Schema.ObjectId(req.body.taskassign);
-    var commentUserId = new mongoose.Schema.ObjectId(req.body.taskcomment);
+    //var commentUserId = new mongoose.Schema.ObjectId(req.body.taskcomment);
     
     var task = new TaskModel({
         title: req.body.title,
@@ -133,7 +129,7 @@ router.post('/task/projectId/:projectId', function(req, resp) {
         datecreated: req.body.datecreated,
         datefinished: req.body.datefinished,
         taskhistory: req.body.taskhistory,
-        taskcomment: commentUserId,
+        taskcomment: req.body.taskcomment,
         projectId : req.body.projectId,
         drag : req.body.drag
         

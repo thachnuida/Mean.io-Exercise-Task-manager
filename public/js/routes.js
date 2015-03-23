@@ -24,17 +24,6 @@ angular.module('taskboardApp').config(['$stateProvider', '$urlRouterProvider',
             templateUrl: 'views/viewproject.html'
         })
 
-        .state('createTask', {
-            url: '/createtask',
-            resolve: {
-                taskId: function($stateParams) {
-                    return $stateParams.id;
-                },
-            },
-            controller: 'createTaskCtrl',
-            templateUrl: 'views/createtask.html'
-        })
-
         .state('createProject', {
             url: '/createproject',
             resolve: {
